@@ -61,7 +61,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         super.viewDidLoad()
         editPhotoButton()
         naziv.becomeFirstResponder()
-        storeBarcodeOutlet.isHidden = false
+       
         addKeyboardObservers()
        
     }
