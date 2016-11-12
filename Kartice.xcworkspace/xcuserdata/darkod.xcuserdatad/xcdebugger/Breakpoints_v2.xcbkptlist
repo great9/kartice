@@ -153,11 +153,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kartice/ViewController.swift"
-            timestampString = "500650284.049609"
+            timestampString = "500653235.615815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "storeCardToCoreData()"
             landmarkType = "7">
             <Locations>

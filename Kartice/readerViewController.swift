@@ -125,6 +125,8 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+
+    
 }
 
 

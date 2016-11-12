@@ -64,6 +64,13 @@ class displayDataController: UIViewController{
         }
         return nil
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        get {
+            return true
+        }
+    }
+    
 
     
     @IBOutlet weak var logoImage: UIImageView!

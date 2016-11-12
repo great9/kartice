@@ -20,9 +20,10 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     var typeOfBarcode: String?
     @IBOutlet weak var barCode: UIImageView!
     @IBOutlet weak var cardNumber: UILabel!
+    @IBOutlet weak var storeButtonOutlet: UIButton!
     
   
-    @IBOutlet weak var storeBarcodeOutlet: UIButton!
+   
     @IBOutlet weak var naziv: UITextField!
     
     @IBAction func dismissView(_ sender: Any) {
@@ -30,15 +31,16 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     @IBAction func storeBarcode2(_ sender: Any) {
-        
-    }
-    @IBAction func storeBarcode(_ sender: Any) {
-        
-       // storeCardToCoreData()
-        
+        execute2()
     }
 
 
+    func checkIfStoreEligible(){
+        if cardNumber == nil {
+            self.storeButtonOutlet.isEnabled = false
+        }
+    
+    }
     
     func execute2() {
         
@@ -46,7 +48,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         var barcode = UIImage()
         barcode = generateBarcode(from: cardNumber.text!)!
         barCode.image = barcode
- 
+        storeCardToCoreData()
         view.endEditing(true)
     }
     
@@ -61,7 +63,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         super.viewDidLoad()
         editPhotoButton()
         naziv.becomeFirstResponder()
-       
+        checkIfStoreEligible()
         addKeyboardObservers()
        
     }

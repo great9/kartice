@@ -184,6 +184,7 @@
                         <outlet property="cardNumber" destination="y6D-Bw-PFO" id="jv4-sa-ApZ"/>
                         <outlet property="naziv" destination="Edb-Ul-IrV" id="fk4-m8-7xO"/>
                         <outlet property="photoButton" destination="K5X-7U-i3T" id="GEe-vG-g5M"/>
+                        <outlet property="storeButtonOutlet" destination="jVu-Mk-LGX" id="hcm-Tc-7Kb"/>
                         <outlet property="typeOfBarcodeLabel" destination="0Nc-Ak-mfL" id="7wa-Nl-0RU"/>
                     </connections>
                 </viewController>
