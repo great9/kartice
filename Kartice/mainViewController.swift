@@ -32,6 +32,14 @@ class mainController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyData
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
+        
+        self.navigationItem.title = "Kartice"
+        self.tableView.showsVerticalScrollIndicator = false
+        
+        self.tableView.separatorColor = UIColor.clear
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
@@ -57,11 +65,38 @@ class mainController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyData
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! customCell
         let objToShow = cardObjects[indexPath.row]
+        let rownum = indexPath.row
         print("Object to show is \(objToShow.naziv) \(objToShow.id)")
         cell.vendorLabel.text = objToShow.naziv!
+
+        //cell.cellBckVw.layer.borderWidth = 4
+  
+        
+       // cell.cellBckVw.backgroundColor = customColors.darkPurpleTV
+        
+        if rownum % 3 != 0 {
+        let evenOdd = rownum % 2
+        
+        if evenOdd == 0 {
+        cell.cellBckVw.backgroundColor = customColors.scheme1Color2
+        //cell.cellBckVw.layer.borderColor = customColors.lightPurpleTV.cgColor
+  
+        
+        }else{
+            cell.cellBckVw.backgroundColor = customColors.scheme1Color1
+        //cell.cellBckVw.layer.borderColor = customColors.darkPurpleTV.cgColor
+       
+            }}else {
+        cell.cellBckVw.backgroundColor = customColors.scheme1Color3
+       // cell.cellBckVw.layer.borderColor = customColors.lighterPurpleTV.cgColor
+        }
         
         return cell
         
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
     func loadCoreData(){

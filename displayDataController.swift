@@ -40,6 +40,8 @@ class displayDataController: UIViewController{
         
         if typeOfBarcode == "org.gs1.EAN-13"{
             let image: UIImage = barcodeParserObj.returnEAN13(string: string)
+         
+            
             return image
         }
             

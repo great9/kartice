@@ -21,10 +21,8 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     @IBOutlet weak var barCode: UIImageView!
     @IBOutlet weak var cardNumber: UILabel!
     @IBOutlet weak var storeButtonOutlet: UIButton!
-    
-  
-   
     @IBOutlet weak var naziv: UITextField!
+    
     
     @IBAction func dismissView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -35,21 +33,20 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
 
 
-    func checkIfStoreEligible(){
-        if cardNumber == nil {
-            self.storeButtonOutlet.isEnabled = false
-        }
-    
-    }
+//    func checkIfStoreEligible(){
+//        if cardNumber == nil {
+//            self.storeButtonOutlet.isEnabled = false
+//        }
+//    
+//    }
     
     func execute2() {
-        
         print("button pressed")
         var barcode = UIImage()
         barcode = generateBarcode(from: cardNumber.text!)!
         barCode.image = barcode
         storeCardToCoreData()
-        view.endEditing(true)
+        
     }
     
     func editPhotoButton(){
@@ -63,8 +60,12 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         super.viewDidLoad()
         editPhotoButton()
         naziv.becomeFirstResponder()
-        checkIfStoreEligible()
+   
         addKeyboardObservers()
+               
+        if ((naziv.text?.isEmpty)! || (cardNumber.text?.isEmpty)!){
+            print("The fields might be empty")
+        }
        
     }
 
@@ -132,6 +133,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         
         do{
             try context.save()
+            self.view.endEditing(true)
             self.dismiss(animated: true, completion: nil)
         }
         catch{

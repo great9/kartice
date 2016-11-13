@@ -11,6 +11,11 @@ import UIKit
 class customCell: UITableViewCell{
     
     @IBOutlet weak var vendorLabel: UILabel!
+
+    @IBOutlet weak var cellBckVw: UIView!
+    
+
+
     
 
 }
