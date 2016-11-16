@@ -137,11 +137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "displayDataController.swift"
-            timestampString = "500491661.553004"
+            timestampString = "501017777.939695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -153,11 +153,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kartice/ViewController.swift"
-            timestampString = "500730644.424082"
+            timestampString = "500841332.45848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "storeCardToCoreData()"
             landmarkType = "7">
             <Locations>
@@ -169,11 +169,11 @@
                   moduleName = "Kartice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/darkod/Documents/Developer/Kartice/Kartice/ViewController.swift"
-                  timestampString = "500649782.526643"
+                  timestampString = "500839629.794265"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
                   offsetFromSymbolStart = "36">
                </Location>
                <Location
@@ -184,11 +184,11 @@
                   moduleName = "Kartice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/darkod/Documents/Developer/Kartice/Kartice/ViewController.swift"
-                  timestampString = "500649782.529108"
+                  timestampString = "500839629.795755"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
                   offsetFromSymbolStart = "48">
                </Location>
             </Locations>

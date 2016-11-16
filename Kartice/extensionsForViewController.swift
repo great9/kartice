@@ -55,7 +55,7 @@ extension UIViewController{
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height * 0.67
+                self.view.frame.origin.y -= (keyboardSize.height * 0.14)
             }
         }
         
@@ -64,7 +64,7 @@ extension UIViewController{
     func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height * 0.67
+                self.view.frame.origin.y += (keyboardSize.height * 0.14)
             }
         }
     }
@@ -81,6 +81,7 @@ extension UIViewController{
         static let scheme1Color1 = UIColor(red:0.33, green:0.38, blue:0.44, alpha:1.0)
         static let scheme1Color2 = UIColor(red:0.31, green:0.80, blue:0.77, alpha:1.0)
         static let scheme1Color3 = UIColor(red:0.78, green:0.96, blue:0.39, alpha:1.0)
+        static let scheme1Color4 = UIColor(red:1.00, green:0.42, blue:0.42, alpha:1.0)
     }
  
 }

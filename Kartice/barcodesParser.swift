@@ -10,10 +10,6 @@ import Foundation
 import RSBarcodes
 
 
-struct typesOfBarcodes {
-    var EAN13 = AVMetadataObjectTypeEAN13Code
-}
-
 
 class  barcodeParser {
     let genv2 = RSUnifiedCodeGenerator.codeGen()

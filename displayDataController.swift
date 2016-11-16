@@ -17,9 +17,22 @@ class displayDataController: UIViewController{
     var receivedData:Card?
     var typeOfBarcode: String?
     
+    @IBAction func dismissController(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+ 
+        
+        self.navigationController?.navigationBar.tintColor = .black
+        
         var barcode = UIImage()
         let code = receivedData?.kod
         //barcode = generateBarcode(from:code)
@@ -40,8 +53,6 @@ class displayDataController: UIViewController{
         
         if typeOfBarcode == "org.gs1.EAN-13"{
             let image: UIImage = barcodeParserObj.returnEAN13(string: string)
-         
-            
             return image
         }
             

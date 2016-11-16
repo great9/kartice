@@ -10,10 +10,15 @@ import UIKit
 import CoreData
 import DZNEmptyDataSet
 
-class mainController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
+    @IBOutlet weak var cardSearchBar: UISearchBar!
     
     var cardObjects = [Card]()
-
+    var filteredCardObjects: [Card] = []
+    
+    var searchActivated = false
+    
     override func viewWillAppear(_ animated: Bool) {
         let canLoadData = countCoreDataObjects()
         if canLoadData == true {
@@ -24,11 +29,16 @@ class mainController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyData
         }
         
     }
+    @IBAction func acytion(_ sender: Any) {
+        if cardSearchBar.text != nil || cardSearchBar.text != ""{
+        print(cardSearchBar.text)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+     
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
@@ -59,21 +69,29 @@ class mainController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyData
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cardObjects.count
+        
+        if searchActivated{
+            return filteredCardObjects.count
+        }else {
+            return cardObjects.count}
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! customCell
-        let objToShow = cardObjects[indexPath.row]
-        let rownum = indexPath.row
-        print("Object to show is \(objToShow.naziv) \(objToShow.id)")
+        cell.cellBckVw.layer.cornerRadius = 6
+        
+        var objToShow = Card()
+        
+        if searchActivated{
+        objToShow = filteredCardObjects[indexPath.row]
+        }
+        else{
+        objToShow = cardObjects[indexPath.row]
+        }
+        
+        
         cell.vendorLabel.text = objToShow.naziv!
-
-        //cell.cellBckVw.layer.borderWidth = 4
-  
-        
-       // cell.cellBckVw.backgroundColor = customColors.darkPurpleTV
-        
+        let rownum = indexPath.row
         if rownum % 3 != 0 {
         let evenOdd = rownum % 2
         
@@ -87,7 +105,7 @@ class mainController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyData
         //cell.cellBckVw.layer.borderColor = customColors.darkPurpleTV.cgColor
        
             }}else {
-        cell.cellBckVw.backgroundColor = customColors.scheme1Color3
+        cell.cellBckVw.backgroundColor = customColors.scheme1Color4
        // cell.cellBckVw.layer.borderColor = customColors.lighterPurpleTV.cgColor
         }
         
@@ -176,6 +194,40 @@ class mainController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyData
         }
     }
     
+    //search bar delegate functions
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("Started editing")
+        searchActivated = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("Ended editing")
+        searchActivated = false
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Entered searchbar function")
+        
+        filteredCardObjects = cardObjects.filter({ (Card) -> Bool in
+            let preTmp = Card.naziv
+            let tmp = NSString(string: preTmp!)
+            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            print("preTMP \(preTmp)")
+            print ("TMP \(tmp)")
+            return range.location != NSNotFound
+        })
+        
+        if(filteredCardObjects.count == 0){
+            searchActivated = false;
+            self.tableView.reloadData()
+        } else {
+            searchActivated = true;
+        }
+        self.tableView.reloadData()
+    }
+    
+    
     func countCoreDataObjects()-> Bool{
         //let request = NSFetchRequest<Goals>(entityName:"Goals")
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -195,4 +247,11 @@ class mainController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyData
         }
         
     }
+    override var prefersStatusBarHidden: Bool {
+        get {
+            return true
+        }
+    }
+    
+    
 }
