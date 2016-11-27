@@ -29,7 +29,7 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
         let videoCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)

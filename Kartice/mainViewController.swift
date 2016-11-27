@@ -41,6 +41,9 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         self.tableView.tableFooterView = UIView()
         
         self.navigationItem.title = "Kartice"
+        self.navigationController!.navigationBar.titleTextAttributes =
+            ([NSFontAttributeName: UIFont(name: "AvenirNext", size: 22)!,
+              NSForegroundColorAttributeName: UIColor.black])
         self.tableView.showsVerticalScrollIndicator = false
         
         self.tableView.separatorColor = UIColor.clear

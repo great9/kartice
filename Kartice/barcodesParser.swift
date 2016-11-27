@@ -12,23 +12,22 @@ import RSBarcodes
 
 
 class  barcodeParser {
-    let genv2 = RSUnifiedCodeGenerator.codeGen()
-    
+    let generator = RSUnifiedCodeGenerator.codeGen()
     
     func returnEAN13(string:String) -> UIImage{
-    let barcodeImage: UIImage = (genv2?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeEAN13Code))!
+    let barcodeImage: UIImage = (generator?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeEAN13Code))!
     return barcodeImage
     }
     func returnCode39(string:String) -> UIImage{
-    let barcodeImage: UIImage = (genv2?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeCode39Code))!
+    let barcodeImage: UIImage = (generator?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeCode39Code))!
     return barcodeImage
     }
     func returnEAN8(string:String)-> UIImage{
-    let barcodeImage: UIImage = (genv2?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeEAN8Code))!
+    let barcodeImage: UIImage = (generator?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeEAN8Code))!
     return barcodeImage
     }
     func returnCode128(string:String)-> UIImage{
-        let barcodeImage: UIImage = (genv2?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeCode128Code))!
+        let barcodeImage: UIImage = (generator?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeCode128Code))!
         return barcodeImage
     }
     

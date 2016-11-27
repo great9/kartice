@@ -15,24 +15,22 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     var barcodeParserObj=barcodeParser()
     var savingEnabled:Bool = false
-
+    var typeOfBarcode: String?
+    
     func textFieldDidChange(sender: Any){
         if let notification = sender as? NSNotification,
         let textFieldChanged = notification.object as? UITextField, textFieldChanged == self.naziv{
-            print("something")
+            print("Hez, the textfield value changed to \(naziv.text)")
         }
     }
     
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var typeOfBarcodeLabel: UILabel!
-    var typeOfBarcode: String?
     @IBOutlet weak var barCode: UIImageView!
     @IBOutlet weak var cardNumber: UILabel!
     @IBOutlet weak var storeButtonOutlet: UIButton!
     @IBOutlet weak var naziv: UITextField!
    
-    
-    
     @IBAction func dismissView(_ sender: Any) {
         self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
@@ -40,15 +38,11 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     @IBAction func storeBarcode2(_ sender: Any) {
         print("Saving enabled is set to \(savingEnabled)")
-        //if cardNumber.text != "" && naziv.text != ""{
         if savingEnabled{
             storeCardToCoreData()
-            execute2()
+            generateAndPresentBarcode()
         }
         else{
-     
-        //animateButton(button: storeButtonOutlet)
-            //animate textfield or scan button
             if !((naziv.text?.isEmpty)!){
                 self.photoButton.shake2()
                 }
@@ -59,14 +53,10 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
                 self.photoButton.shake2()
                 self.naziv.shake()
             }
-            
-            print("animate the button")
         }
     }
     
-
-    
-    func execute2() {
+    func generateAndPresentBarcode() {
         print("button pressed")
         var barcode = UIImage()
         barcode = generateBarcode(from: cardNumber.text!)!
@@ -82,7 +72,6 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     func editPhotoButton(){
-  
         let stringForButtonTitle = ("Skeniraj")
         self.photoButton.setTitle(stringForButtonTitle, for: .normal)
     }
@@ -110,36 +99,20 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         editPhotoButton()
         naziv.becomeFirstResponder()
         addObserverToTextField()
-        //addKeyboardObservers()
-               
-        if ((naziv.text?.isEmpty)! || (cardNumber.text?.isEmpty)!){
-            print("The fields might be empty")
-        }
-        self.storeButtonOutlet.alpha = 1
-   
-       
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let destVC = segue.destination as! readerViewController
             destVC.delegate = self
-    
     }
     
     func barcodeScanned(code: String, type: String){
         typeOfBarcode = type
         cardNumber.text = code
         typeOfBarcodeLabel.text = typeOfBarcode
-        execute2()
+        generateAndPresentBarcode()
     }
 
-    
     
     func generateBarcode(from string: String) -> UIImage? {
         
@@ -162,12 +135,9 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         
         else if typeOfBarcode == "org.iso.Code128" {
         let data = string.data(using: String.Encoding.ascii)
-        //OB_CODE128A
-        //CICode128BarcodeGenerator
         if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
             let transform = CGAffineTransform(scaleX: 3, y: 3)
-            
             if let output = filter.outputImage?.applying(transform) {
                 return UIImage(ciImage: output)
             }
@@ -184,7 +154,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         
         card.id = String(Date.timeIntervalSinceReferenceDate)
         card.kod = cardNumber.text
-        card.logo = ""
+        card.logo = "" //temporary not in use
         card.naziv = naziv.text
         card.type = typeOfBarcode
        
@@ -194,8 +164,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
             self.dismiss(animated: true, completion: nil)
         }
         catch{
-            fatalError("Error")
-        
+            fatalError("Error while trying to save to core data")
         }
         
     }
@@ -206,11 +175,6 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
             return true
         }
     }
-    
-     
-/* let path = String(describing:getDocumentsDirectory())
- let url = URL(fileURLWithPath: path).appendingPathComponent(objectToShowInCell.imagePath!)
- cell.goalImage.image = UIImage(contentsOfFile: url.path)*/
 
 }
 
