@@ -27,13 +27,10 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         else {
             print("The core data is empty and no fetch is going to be done")
         }
+        cardSearchBar.text = ""
         
     }
-    @IBAction func acytion(_ sender: Any) {
-        if cardSearchBar.text != nil || cardSearchBar.text != ""{
-        print(cardSearchBar.text)
-        }
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,8 +76,8 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! customCell
         cell.cellBckVw.layer.cornerRadius = 6
-        
-        var objToShow = Card()
+        cell.addGestureRecognizer(longGesture)
+        var objToShow : Card?
         
         if searchActivated{
         objToShow = filteredCardObjects[indexPath.row]
@@ -90,7 +87,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         }
         
         
-        cell.vendorLabel.text = objToShow.naziv!
+        cell.vendorLabel.text = objToShow?.naziv!
         let rownum = indexPath.row
         if rownum % 3 != 0 {
         let evenOdd = rownum % 2
@@ -133,7 +130,8 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
                 cardObjects.append(result)
                print("Core data fetch \(result.kod!)" )
             }
-            tableView.reloadData()
+            animateTable()
+           // tableView.reloadData()
             //self.tableView.reloadSections([0], with: UITableViewRowAnimation.fade)
         }
         catch {
@@ -190,7 +188,9 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         changeTheTitleOfTheBackButton(textToDisplay: "")
         if let indexPath = self.tableView.indexPathForSelectedRow{
             let DestViewController = segue.destination as! displayDataController
-            DestViewController.receivedData = cardObjects[indexPath.row]
+            if !searchActivated{
+                DestViewController.receivedData = cardObjects[indexPath.row]}
+            else {DestViewController.receivedData = filteredCardObjects[indexPath.row]}
         }
     }
     
@@ -227,6 +227,9 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         self.tableView.reloadData()
     }
     
+    func handleViewTap(recognizer: UIGestureRecognizer) {
+        cardSearchBar.resignFirstResponder()
+    }
     
     func countCoreDataObjects()-> Bool{
         //let request = NSFetchRequest<Goals>(entityName:"Goals")
@@ -243,10 +246,57 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
             }
         }
         catch {
-            fatalError("Sthh")
+            fatalError("Error while trying to count card objects")
         }
         
     }
+    
+    func keyboardDismiss() {
+        cardSearchBar.resignFirstResponder()
+    }
+    
+   /* func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        keyboardDismiss()
+    }*/
+    
+    let longGesture = UILongPressGestureRecognizer(target: self, action: Selector(("addFavorite:")))
+    
+    func emptyTheCardSearchBar(){
+        cardSearchBar.text = ""
+    }
+    
+    func addFavorite(){
+    print("Longpressed")
+    }
+    
+    func addFavoriteToNSUserDefaults(favCard: Card){
+        UserDefaults.init(suiteName: "group.com.darko")?.setValue("Broj Kartice", forKey: "brojKartice")
+        
+        
+    }
+    func animateTable() {
+        tableView.reloadData()
+        
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            UIView.animate(withDuration: 0.97, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .allowAnimatedContent, animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+            }, completion: nil)
+            
+            index += 1
+        }
+    }
+    
     override var prefersStatusBarHidden: Bool {
         get {
             return true

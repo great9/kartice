@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="today" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="jbI-FB-j7h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLg-lo-5HA">
+                                <rect key="frame" x="0.0" y="37" width="320" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="4lw-kt-CUR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9a-gq-iM0">
+                                <rect key="frame" x="0.0" y="142" width="320" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="yd1-lO-gql"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="9dm-lP-QgR"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="G9a-gq-iM0" secondAttribute="bottom" constant="4" id="9tk-Rp-GRr"/>
+                            <constraint firstItem="PLg-lo-5HA" firstAttribute="leading" secondItem="G9a-gq-iM0" secondAttribute="trailing" constant="-320" id="A0t-6b-77B"/>
+                            <constraint firstAttribute="trailing" secondItem="G9a-gq-iM0" secondAttribute="trailing" id="AOm-XF-7AE"/>
+                            <constraint firstItem="G9a-gq-iM0" firstAttribute="top" secondItem="PLg-lo-5HA" secondAttribute="bottom" constant="4" id="J4W-FY-VPR"/>
+                            <constraint firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" id="QWL-bW-sLU"/>
+                            <constraint firstItem="G9a-gq-iM0" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="TPo-wf-sNe"/>
+                            <constraint firstItem="PLg-lo-5HA" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" id="VCA-4R-DWg"/>
+                            <constraint firstAttribute="trailing" secondItem="PLg-lo-5HA" secondAttribute="trailing" id="bAY-sc-YZe"/>
+                            <constraint firstItem="PLg-lo-5HA" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="fc3-PR-WNN"/>
+                            <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="fpr-g9-qw8"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="177"/>
+                    <connections>
+                        <outlet property="barcodeImage" destination="PLg-lo-5HA" id="KHB-SW-8UH"/>
+                        <outlet property="codeLabel" destination="G9a-gq-iM0" id="XZQ-Sv-xe2"/>
+                        <outlet property="vendorLabel" destination="GcN-lo-r42" id="yOE-J2-EkX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.59999999999999" y="136.28185907046478"/>
+        </scene>
+    </scenes>
+</document>

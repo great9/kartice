@@ -69,6 +69,7 @@ extension UIViewController{
         }
     }
     
+    
     struct customColors {
         static let darkPurple = UIColor(displayP3Red: 252, green: 23, blue: 11, alpha: 0.2)
        // static let yellow = UIColor(displayP3Red: 247, green: 239, blue: 105, alpha: 0.47)
@@ -83,7 +84,85 @@ extension UIViewController{
         static let scheme1Color3 = UIColor(red:0.78, green:0.96, blue:0.39, alpha:1.0)
         static let scheme1Color4 = UIColor(red:1.00, green:0.42, blue:0.42, alpha:1.0)
     }
+    
+    //Animations
+    
+    func animateButton(button: UIButton){
+        let bounds = button.bounds
+        UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .allowAnimatedContent , animations: {
+            button.alpha = 1
+            button.bounds = CGRect(x: bounds.origin.x , y: bounds.origin.y, width: bounds.size.width + 80, height: bounds.size.height)
+            button.isEnabled = false
+        }, completion: nil )
+        
+    }
+    func animateOut(button: UIButton){
+        let bounds = button.bounds
+        UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .allowAnimatedContent , animations: {
+            button.alpha = 0.5
+            button.bounds = CGRect(x: bounds.origin.x , y: bounds.origin.y, width: bounds.size.width - 80, height: bounds.size.height)
+            button.isEnabled = false
+        }, completion: nil )
+        
+    }
+    func animateButtonIn(button: UIButton){
+        let bounds = button.bounds
+        UIView.animate(withDuration: 0.25, delay: 0.5, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .allowAnimatedContent , animations: {
+            button.bounds = CGRect(x: bounds.origin.x + 20, y: bounds.origin.y, width: bounds.size.width + 80, height: bounds.size.height)
+            button.alpha = 1
+        }, completion: nil )
+        
+    }
+
  
+}
+
+extension UIView{
+    
+    
+    func shake() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 3
+        animation.autoreverses = true
+        animation.fromValue = CGPoint(x: self.center.x - 10, y:self.center.y)
+        animation.toValue = CGPoint(x: self.center.x + 10, y:self.center.y)
+        self.layer.add(animation, forKey: "position")
+    }
+    
+    func shake2() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.06
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = CGPoint(x: self.center.x - 15, y:self.center.y)
+        animation.toValue = CGPoint(x: self.center.x + 15, y:self.center.y)
+        self.layer.add(animation, forKey: "position")
+    }
+    
+    func pulsate(button: UIButton){
+        
+        button.isUserInteractionEnabled = true
+        button.isEnabled = true
+        
+        let pulse1 = CASpringAnimation(keyPath: "transform.scale")
+        pulse1.duration = 0.6
+        pulse1.fromValue = 1.0
+        pulse1.toValue = 1.12
+        pulse1.autoreverses = true
+        pulse1.repeatCount = 1
+        pulse1.initialVelocity = 0.5
+        pulse1.damping = 0.8
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.duration = 2.7
+        animationGroup.repeatCount = 1000
+        animationGroup.animations = [pulse1]
+        
+        button.layer.add(animationGroup, forKey: "pulse")
+    
+    }
+
 }
  /*
     func addTapGestureRecognizer(){

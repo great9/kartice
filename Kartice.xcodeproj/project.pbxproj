@@ -20,6 +20,10 @@
 		A4145D1B1DCD464800770B8D /* KarticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145D1A1DCD464800770B8D /* KarticeTests.swift */; };
 		A4145D261DCD464800770B8D /* KarticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145D251DCD464800770B8D /* KarticeUITests.swift */; };
 		A442AAEB1DCE1EC200E2E587 /* extensionsForViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A442AAEA1DCE1EC200E2E587 /* extensionsForViewController.swift */; };
+		A4AC9BFE1DE4C82D00A44559 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AC9BFD1DE4C82D00A44559 /* NotificationCenter.framework */; };
+		A4AC9C011DE4C82D00A44559 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AC9C001DE4C82D00A44559 /* TodayViewController.swift */; };
+		A4AC9C041DE4C82D00A44559 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4AC9C021DE4C82D00A44559 /* MainInterface.storyboard */; };
+		A4AC9C081DE4C82D00A44559 /* today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4AC9BFC1DE4C82D00A44559 /* today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A4B520941DCF62150046597D /* displayDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B520931DCF62150046597D /* displayDataController.swift */; };
 		A4D6BC001DD4D4FA00AC7DE6 /* barcodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6BBFF1DD4D4FA00AC7DE6 /* barcodesParser.swift */; };
 		A4F203D21DCE2DD3006B20B7 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F203D11DCE2DD3006B20B7 /* mainViewController.swift */; };
@@ -41,7 +45,28 @@
 			remoteGlobalIDString = A4145CFE1DCD464800770B8D;
 			remoteInfo = Kartice;
 		};
+		A4AC9C061DE4C82D00A44559 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4145CF71DCD464800770B8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4AC9BFB1DE4C82D00A44559;
+			remoteInfo = today;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A4AC9C0C1DE4C82D00A44559 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A4AC9C081DE4C82D00A44559 /* today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3E6506CB2CF70DB005434040 /* Pods-Kartice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kartice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kartice/Pods-Kartice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +92,13 @@
 		A4145D251DCD464800770B8D /* KarticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarticeUITests.swift; sourceTree = "<group>"; };
 		A4145D271DCD464800770B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A442AAEA1DCE1EC200E2E587 /* extensionsForViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensionsForViewController.swift; sourceTree = "<group>"; };
+		A4AC9BFC1DE4C82D00A44559 /* today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4AC9BFD1DE4C82D00A44559 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A4AC9C001DE4C82D00A44559 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		A4AC9C031DE4C82D00A44559 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A4AC9C051DE4C82D00A44559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4AC9C0D1DE4CAFB00A44559 /* Kartice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kartice.entitlements; sourceTree = "<group>"; };
+		A4AC9C0E1DE4CB0600A44559 /* today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = today.entitlements; sourceTree = "<group>"; };
 		A4B520931DCF62150046597D /* displayDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = displayDataController.swift; path = ../displayDataController.swift; sourceTree = "<group>"; };
 		A4D6BBFF1DD4D4FA00AC7DE6 /* barcodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = barcodesParser.swift; sourceTree = "<group>"; };
 		A4F203D11DCE2DD3006B20B7 /* mainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +132,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A4AC9BF91DE4C82D00A44559 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4AC9BFE1DE4C82D00A44559 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,6 +162,7 @@
 				A4145D011DCD464800770B8D /* Kartice */,
 				A4145D191DCD464800770B8D /* KarticeTests */,
 				A4145D241DCD464800770B8D /* KarticeUITests */,
+				A4AC9BFF1DE4C82D00A44559 /* today */,
 				A4145D001DCD464800770B8D /* Products */,
 				5A52098AFC3A4E35DCCB7DA3 /* Pods */,
 				E7B2CBEC1793430D2B58F611 /* Frameworks */,
@@ -134,6 +175,7 @@
 				A4145CFF1DCD464800770B8D /* Kartice.app */,
 				A4145D161DCD464800770B8D /* KarticeTests.xctest */,
 				A4145D211DCD464800770B8D /* KarticeUITests.xctest */,
+				A4AC9BFC1DE4C82D00A44559 /* today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +183,7 @@
 		A4145D011DCD464800770B8D /* Kartice */ = {
 			isa = PBXGroup;
 			children = (
+				A4AC9C0D1DE4CAFB00A44559 /* Kartice.entitlements */,
 				A4D6BC011DD4E33900AC7DE6 /* supporting classes */,
 				A4145D021DCD464800770B8D /* AppDelegate.swift */,
 				A4D6BC051DD4E3A500AC7DE6 /* new card View */,
@@ -172,6 +215,17 @@
 				A4145D271DCD464800770B8D /* Info.plist */,
 			);
 			path = KarticeUITests;
+			sourceTree = "<group>";
+		};
+		A4AC9BFF1DE4C82D00A44559 /* today */ = {
+			isa = PBXGroup;
+			children = (
+				A4AC9C0E1DE4CB0600A44559 /* today.entitlements */,
+				A4AC9C001DE4C82D00A44559 /* TodayViewController.swift */,
+				A4AC9C021DE4C82D00A44559 /* MainInterface.storyboard */,
+				A4AC9C051DE4C82D00A44559 /* Info.plist */,
+			);
+			path = today;
 			sourceTree = "<group>";
 		};
 		A4D6BC011DD4E33900AC7DE6 /* supporting classes */ = {
@@ -222,6 +276,7 @@
 				63375C37C71030C5DCF92BC0 /* Pods_Kartice.framework */,
 				EF2EF2EECDB8836257775636 /* Pods_KarticeTests.framework */,
 				7CD13828A28A51FD1864685D /* Pods_KarticeUITests.framework */,
+				A4AC9BFD1DE4C82D00A44559 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -239,10 +294,12 @@
 				A4145CFD1DCD464800770B8D /* Resources */,
 				1E01C151D3C15FDA3649FFE5 /* [CP] Embed Pods Frameworks */,
 				F228314CDFC320CEBCA927B7 /* [CP] Copy Pods Resources */,
+				A4AC9C0C1DE4C82D00A44559 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A4AC9C071DE4C82D00A44559 /* PBXTargetDependency */,
 			);
 			name = Kartice;
 			productName = Kartice;
@@ -291,20 +348,42 @@
 			productReference = A4145D211DCD464800770B8D /* KarticeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A4AC9BFB1DE4C82D00A44559 /* today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4AC9C0B1DE4C82D00A44559 /* Build configuration list for PBXNativeTarget "today" */;
+			buildPhases = (
+				A4AC9BF81DE4C82D00A44559 /* Sources */,
+				A4AC9BF91DE4C82D00A44559 /* Frameworks */,
+				A4AC9BFA1DE4C82D00A44559 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = today;
+			productName = today;
+			productReference = A4AC9BFC1DE4C82D00A44559 /* today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A4145CF71DCD464800770B8D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Darko Dujmovic";
 				TargetAttributes = {
 					A4145CFE1DCD464800770B8D = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = RDP7H8L6QM;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A4145D151DCD464800770B8D = {
 						CreatedOnToolsVersion = 8.1;
@@ -315,6 +394,16 @@
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A4145CFE1DCD464800770B8D;
+					};
+					A4AC9BFB1DE4C82D00A44559 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = RDP7H8L6QM;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -334,6 +423,7 @@
 				A4145CFE1DCD464800770B8D /* Kartice */,
 				A4145D151DCD464800770B8D /* KarticeTests */,
 				A4145D201DCD464800770B8D /* KarticeUITests */,
+				A4AC9BFB1DE4C82D00A44559 /* today */,
 			);
 		};
 /* End PBXProject section */
@@ -360,6 +450,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4AC9BFA1DE4C82D00A44559 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4AC9C041DE4C82D00A44559 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +634,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A4AC9BF81DE4C82D00A44559 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4AC9C011DE4C82D00A44559 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -548,6 +654,11 @@
 			isa = PBXTargetDependency;
 			target = A4145CFE1DCD464800770B8D /* Kartice */;
 			targetProxy = A4145D221DCD464800770B8D /* PBXContainerItemProxy */;
+		};
+		A4AC9C071DE4C82D00A44559 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4AC9BFB1DE4C82D00A44559 /* today */;
+			targetProxy = A4AC9C061DE4C82D00A44559 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -568,6 +679,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		A4AC9C021DE4C82D00A44559 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4AC9C031DE4C82D00A44559 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -575,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -589,6 +709,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -611,10 +732,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos10.2;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
@@ -624,6 +745,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -638,6 +760,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -655,9 +778,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos10.2;
+				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -667,7 +790,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E6506CB2CF70DB005434040 /* Pods-Kartice.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kartice/Kartice.entitlements;
 				DEVELOPMENT_TEAM = RDP7H8L6QM;
 				INFOPLIST_FILE = Kartice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -681,7 +806,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D70A3945BF102C35EF1D9E2A /* Pods-Kartice.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kartice/Kartice.entitlements;
 				DEVELOPMENT_TEAM = RDP7H8L6QM;
 				INFOPLIST_FILE = Kartice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -749,6 +876,35 @@
 			};
 			name = Release;
 		};
+		A4AC9C091DE4C82D00A44559 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = today/today.entitlements;
+				DEVELOPMENT_TEAM = RDP7H8L6QM;
+				INFOPLIST_FILE = today/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.darko.Kartice.today;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A4AC9C0A1DE4C82D00A44559 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = today/today.entitlements;
+				DEVELOPMENT_TEAM = RDP7H8L6QM;
+				INFOPLIST_FILE = today/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.darko.Kartice.today;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -784,6 +940,15 @@
 			buildConfigurations = (
 				A4145D311DCD464800770B8D /* Debug */,
 				A4145D321DCD464800770B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4AC9C0B1DE4C82D00A44559 /* Build configuration list for PBXNativeTarget "today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4AC9C091DE4C82D00A44559 /* Debug */,
+				A4AC9C0A1DE4C82D00A44559 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

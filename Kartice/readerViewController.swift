@@ -7,7 +7,7 @@
 //
 import AVFoundation
 import UIKit
-
+import SwiftSpinner
 
 protocol passData {
     func barcodeScanned(code: String, type:String)
@@ -23,12 +23,13 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBOutlet weak var readerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.black
+       // view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
         let videoCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -59,16 +60,51 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             return
         }
         
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
-        previewLayer.frame = view.layer.bounds;
-        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        view.layer.addSublayer(previewLayer);
         
-        captureSession.startRunning();
+        let activityIndicator = SwiftSpinner()
+        activityIndicator.frame = CGRect(x: self.view.frame.minX,
+                                         y: self.view.frame.minY,
+                                         width: self.view.frame.maxX,
+                                         height: self.view.frame.maxY)
+        
+        
+        
+        let halfOfTheView:CGFloat = (self.view.frame.width/CGFloat(2))
+        let widthOfTheButton:CGFloat = (self.view.frame.width * 0.8)
+        let positionOfButton = halfOfTheView - (widthOfTheButton/2)
+        //position and size of cancel button
+        let positionForCancelButton:CGRect = CGRect(x: positionOfButton ,
+                                                    y: self.view.bounds.maxY - 140,
+                                                    width: widthOfTheButton, height: 60)
+        
+        //cancel button
+        let cancelButton = UIButton()
+        cancelButton.setTitle("Odustani", for: .normal)
+        cancelButton.titleLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 25)
+        
+        cancelButton.frame = positionForCancelButton
+        cancelButton.backgroundColor = customColors.scheme1Color4
+        cancelButton.addTarget(self, action: #selector(closeViewFinder), for: .touchUpInside)
+        
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = view.bounds
+        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        
+        view.layer.addSublayer(previewLayer)
+        self.view.addSubview(cancelButton)
+       
+        captureSession.startRunning()
+    }
+    
+    func closeViewFinder(){
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Scanning not supported",
+                                   message: "Your device does not support scanning a code from an item. Please use a device with a camera.",
+                                   preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
         captureSession = nil
@@ -109,9 +145,7 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     func found(code: String) {
         readerLabel.text = code
-        if let del = delegate{
-          //  del.barcodeScanned(code: code)
-        }
+        
         
         print(code)
     }

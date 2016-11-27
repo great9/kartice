@@ -20,9 +20,18 @@ class  barcodeParser {
     return barcodeImage
     }
     func returnCode39(string:String) -> UIImage{
-        let barcodeImage: UIImage = (genv2?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeCode39Code))!
+    let barcodeImage: UIImage = (genv2?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeCode39Code))!
     return barcodeImage
     }
+    func returnEAN8(string:String)-> UIImage{
+    let barcodeImage: UIImage = (genv2?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeEAN8Code))!
+    return barcodeImage
+    }
+    func returnCode128(string:String)-> UIImage{
+        let barcodeImage: UIImage = (genv2?.genCode(withContents: string, machineReadableCodeObjectType: AVMetadataObjectTypeCode128Code))!
+        return barcodeImage
+    }
+    
     
 }
 

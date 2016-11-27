@@ -1,4 +1,4 @@
-//
+ //
 //  ViewController.swift
 //  Kartice
 //
@@ -14,7 +14,15 @@ import FontAwesome_swift
 class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     var barcodeParserObj=barcodeParser()
+    var savingEnabled:Bool = false
 
+    func textFieldDidChange(sender: Any){
+        if let notification = sender as? NSNotification,
+        let textFieldChanged = notification.object as? UITextField, textFieldChanged == self.naziv{
+            print("something")
+        }
+    }
+    
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var typeOfBarcodeLabel: UILabel!
     var typeOfBarcode: String?
@@ -22,6 +30,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     @IBOutlet weak var cardNumber: UILabel!
     @IBOutlet weak var storeButtonOutlet: UIButton!
     @IBOutlet weak var naziv: UITextField!
+   
     
     
     @IBAction func dismissView(_ sender: Any) {
@@ -30,20 +39,45 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     @IBAction func storeBarcode2(_ sender: Any) {
-        
-        if cardNumber.text != "" && naziv.text != ""{
-            storeCardToCoreData()}
-        else{
-            //alertview
+        print("Saving enabled is set to \(savingEnabled)")
+        //if cardNumber.text != "" && naziv.text != ""{
+        if savingEnabled{
+            storeCardToCoreData()
+            execute2()
         }
-        //execute2()
+        else{
+     
+        //animateButton(button: storeButtonOutlet)
+            //animate textfield or scan button
+            if !((naziv.text?.isEmpty)!){
+                self.photoButton.shake2()
+                }
+            else if !(cardNumber.text?.isEmpty)!{
+                self.naziv.shake()
+            }
+            else {
+                self.photoButton.shake2()
+                self.naziv.shake()
+            }
+            
+            print("animate the button")
+        }
     }
+    
+
     
     func execute2() {
         print("button pressed")
         var barcode = UIImage()
         barcode = generateBarcode(from: cardNumber.text!)!
         barCode.image = barcode
+        if !(self.naziv.text?.isEmpty)!{
+        savingEnabled = true
+        }
+        else{
+            print("Animate something here")
+           
+        }
         
     }
     
@@ -53,17 +87,36 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         self.photoButton.setTitle(stringForButtonTitle, for: .normal)
     }
     
+    func addObserverToTextField(){
+        naziv.addTarget(self, action: #selector(self.textFieldDidChange(textField:)) , for: .editingChanged)
+    }
+    
+    @objc private func textFieldDidChange(textField: UITextField) {
+        
+        if (!(naziv.text?.isEmpty)! && (!(typeOfBarcodeLabel.text?.isEmpty)!)){
+            savingEnabled = true
+            print("Case number 1")
+        }
+        else {
+            //animate the scan button or textfield
+            savingEnabled = false
+            print("Case number 2")
+           
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         editPhotoButton()
         naziv.becomeFirstResponder()
-   
+        addObserverToTextField()
         //addKeyboardObservers()
                
         if ((naziv.text?.isEmpty)! || (cardNumber.text?.isEmpty)!){
             print("The fields might be empty")
         }
+        self.storeButtonOutlet.alpha = 1
+   
        
     }
 
@@ -101,6 +154,12 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
             
         }
         
+        else if typeOfBarcode == "org.gs1.EAN-8"{
+            let image: UIImage = barcodeParserObj.returnEAN8(string: string)
+            return image
+        
+        }
+        
         else if typeOfBarcode == "org.iso.Code128" {
         let data = string.data(using: String.Encoding.ascii)
         //OB_CODE128A
@@ -128,7 +187,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         card.logo = ""
         card.naziv = naziv.text
         card.type = typeOfBarcode
-        
+       
         do{
             try context.save()
             self.view.endEditing(true)
@@ -140,6 +199,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         }
         
     }
+    
     
     override var prefersStatusBarHidden: Bool {
         get {
