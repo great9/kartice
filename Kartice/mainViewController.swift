@@ -42,7 +42,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         
         self.navigationItem.title = "Kartice"
         self.navigationController!.navigationBar.titleTextAttributes =
-            ([NSFontAttributeName: UIFont(name: "AvenirNext", size: 22)!,
+            ([NSFontAttributeName: UIFont(name: "Avenir", size: 22)!,
               NSForegroundColorAttributeName: UIColor.black])
         self.tableView.showsVerticalScrollIndicator = false
         
@@ -59,7 +59,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "cd")
+        return UIImage(named: "defaultCard")
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
