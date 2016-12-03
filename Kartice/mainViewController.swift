@@ -299,6 +299,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
             index += 1
         }
     }
+ 
     
     override var prefersStatusBarHidden: Bool {
         get {

@@ -122,7 +122,12 @@ class displayDataController: UIViewController{
  
     func checkIfFavorite(){
         let numberOfCard = receivedData?.kod
-        let numberOfFavCard = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "brojKartice") as! String
+        
+        guard let numberOfFavCard = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "brojKartice") as? String
+        else{
+            favoritesImage.image = UIImage(named:"notFavorite")
+            return
+        }
    
         if numberOfCard == numberOfFavCard {
             favoritesImage.image = UIImage(named: "favorite")

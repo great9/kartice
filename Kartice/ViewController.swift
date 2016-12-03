@@ -14,13 +14,22 @@ import FontAwesome_swift
 class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     var barcodeParserObj=barcodeParser()
-    var savingEnabled:Bool = false
+    var savingEnabled:Bool = false{
+        didSet{
+            if savingEnabled{
+                storeButtonOutlet.backgroundColor = customColors.scheme1Color2
+            }else{
+                storeButtonOutlet.backgroundColor = customColors.scheme1Color2faded
+            }
+        
+        }
+    }
     var typeOfBarcode: String?
     
     func textFieldDidChange(sender: Any){
         if let notification = sender as? NSNotification,
         let textFieldChanged = notification.object as? UITextField, textFieldChanged == self.naziv{
-            print("Hez, the textfield value changed to \(naziv.text)")
+            print("The textfield value changed to \(naziv.text)")
         }
     }
     
@@ -96,6 +105,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        storeButtonOutlet.backgroundColor = customColors.scheme1Color2faded
         editPhotoButton()
         naziv.becomeFirstResponder()
         addObserverToTextField()

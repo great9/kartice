@@ -28,12 +28,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let code = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "brojKartice"){
             codeLabel.text = code as? String
         }else {
-            codeLabel.text = "🕵🏾 nema teksta"
+            codeLabel.text = "🕵🏾 označite neku karticu kao favorita"
         }
         if let vendor = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "vendor"){
             vendorLabel.text = vendor as? String
         } else {
-            vendorLabel.text = "No vendor found"
+            vendorLabel.text = "Niste postavili ni jednu karticu kao favorita"
         }
         if let image = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "image"){
             let imageToPresent = UIImage(data: image as! Data)
