@@ -25,6 +25,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
             loadCoreData()
         }
         else {
+            cardSearchBar.isHidden = true
             print("The core data is empty and no fetch is going to be done")
         }
         cardSearchBar.text = ""
