@@ -75,7 +75,13 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         //position and size of cancel button
         let positionForCancelButton:CGRect = CGRect(x: positionOfButton ,
                                                     y: self.view.bounds.maxY - 140,
-                                                    width: widthOfTheButton, height: 60)
+                                                    width: widthOfTheButton,
+                                                    height: 60)
+        
+        let positionForTorchButton:CGRect = CGRect(x: positionOfButton,
+                                                   y: self.view.bounds.minY + 50,
+                                                   width: widthOfTheButton,
+                                                   height: 40)
         
         //cancel button
         let cancelButton = UIButton()
@@ -86,12 +92,22 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         cancelButton.backgroundColor = customColors.scheme1Color4
         cancelButton.addTarget(self, action: #selector(closeViewFinder), for: .touchUpInside)
         
+        //torch
+        let torch = UIButton()
+        torch.setTitle("💡", for: .normal)
+        torch.titleLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 35)
+        
+        torch.frame = positionForTorchButton
+        //torch.backgroundColor = customColors.scheme1Color2
+        torch.addTarget(self, action: #selector(toggleTorch), for: .touchUpInside)
+        
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = view.bounds
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         
         view.layer.addSublayer(previewLayer)
         self.view.addSubview(cancelButton)
+        self.view.addSubview(torch)
        
         captureSession.startRunning()
     }
@@ -150,6 +166,29 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         print(code)
     }
     
+    func toggleTorch(){
+        let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        if (device?.hasTorch)!{
+            do{
+                try device?.lockForConfiguration()
+                if (device?.torchMode == AVCaptureTorchMode.on){
+                    device?.torchMode = AVCaptureTorchMode.off
+                }else{
+                    do {
+                        try device?.setTorchModeOnWithLevel(1.0)
+                    } catch {
+                        print("Error trying to set torch mode")
+                    }
+                }
+                device?.unlockForConfiguration()
+            } catch {
+                print("Error trying to lock for configuration")
+                
+            }
+        
+        }
+    
+    }
 
     
     override var prefersStatusBarHidden: Bool {
