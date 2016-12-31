@@ -66,7 +66,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     func generateAndPresentBarcode() {
-        print("button pressed")
+  
         var barcode = UIImage()
         barcode = generateBarcode(from: cardNumber.text!)!
         barCode.image = barcode
@@ -89,7 +89,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         naziv.addTarget(self, action: #selector(self.textFieldDidChange(textField:)) , for: .editingChanged)
     }
     
-    @objc private func textFieldDidChange(textField: UITextField) {
+    private func textFieldDidChange(textField: UITextField) {
         
         if (!(naziv.text?.isEmpty)! && (!(typeOfBarcodeLabel.text?.isEmpty)!)){
             savingEnabled = true
