@@ -7,7 +7,7 @@
 //
 import AVFoundation
 import UIKit
-import SwiftSpinner
+
 
 protocol passData {
     func barcodeScanned(code: String, type:String)
@@ -60,12 +60,7 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             return
         }
         
-        
-        let activityIndicator = SwiftSpinner()
-        activityIndicator.frame = CGRect(x: self.view.frame.minX,
-                                         y: self.view.frame.minY,
-                                         width: self.view.frame.maxX,
-                                         height: self.view.frame.maxY)
+       
         
         
         

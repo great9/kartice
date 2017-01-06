@@ -185,9 +185,8 @@
 			children = (
 				A4AC9C0D1DE4CAFB00A44559 /* Kartice.entitlements */,
 				A4D6BC011DD4E33900AC7DE6 /* supporting classes */,
-				A4145D021DCD464800770B8D /* AppDelegate.swift */,
 				A4D6BC051DD4E3A500AC7DE6 /* new card View */,
-				A4D6BC021DD4E37500AC7DE6 /* scanner View */,
+				A4D6BC021DD4E37500AC7DE6 /* reader view */,
 				A4D6BC031DD4E38700AC7DE6 /* main View */,
 				A4D6BC041DD4E38D00AC7DE6 /* display View */,
 				A4145D061DCD464800770B8D /* Main.storyboard */,
@@ -231,18 +230,19 @@
 		A4D6BC011DD4E33900AC7DE6 /* supporting classes */ = {
 			isa = PBXGroup;
 			children = (
+				A4145D021DCD464800770B8D /* AppDelegate.swift */,
 				A4D6BBFF1DD4D4FA00AC7DE6 /* barcodesParser.swift */,
 				A442AAEA1DCE1EC200E2E587 /* extensionsForViewController.swift */,
 			);
 			name = "supporting classes";
 			sourceTree = "<group>";
 		};
-		A4D6BC021DD4E37500AC7DE6 /* scanner View */ = {
+		A4D6BC021DD4E37500AC7DE6 /* reader view */ = {
 			isa = PBXGroup;
 			children = (
 				A40B79011DD106E0003591F7 /* readerViewController.swift */,
 			);
-			name = "scanner View";
+			name = "reader view";
 			sourceTree = "<group>";
 		};
 		A4D6BC031DD4E38700AC7DE6 /* main View */ = {

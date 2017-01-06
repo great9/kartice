@@ -73,10 +73,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         if !(self.naziv.text?.isEmpty)!{
         savingEnabled = true
         }
-        else{
-            print("Animate something here")
-           
-        }
+     
         
     }
     
@@ -89,17 +86,14 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         naziv.addTarget(self, action: #selector(self.textFieldDidChange(textField:)) , for: .editingChanged)
     }
     
-    private func textFieldDidChange(textField: UITextField) {
+    @objc private func textFieldDidChange(textField: UITextField) {
         
         if (!(naziv.text?.isEmpty)! && (!(typeOfBarcodeLabel.text?.isEmpty)!)){
             savingEnabled = true
-            print("Case number 1")
         }
         else {
-            //animate the scan button or textfield
             savingEnabled = false
-            print("Case number 2")
-           
+     
         }
     }
     
