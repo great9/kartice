@@ -14,17 +14,17 @@ import FontAwesome_swift
 class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     var barcodeParserObj=barcodeParser()
+    var typeOfBarcode: String?
     var savingEnabled:Bool = false{
         didSet{
             if savingEnabled{
                 storeButtonOutlet.backgroundColor = customColors.scheme1Color2
-            }else{
+            } else {
                 storeButtonOutlet.backgroundColor = customColors.scheme1Color2faded
             }
-        
         }
     }
-    var typeOfBarcode: String?
+   
     
     func textFieldDidChange(sender: Any){
         if let notification = sender as? NSNotification,
@@ -46,7 +46,6 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     @IBAction func storeBarcode2(_ sender: Any) {
-        print("Saving enabled is set to \(savingEnabled)")
         if savingEnabled{
             storeCardToCoreData()
             generateAndPresentBarcode()
@@ -68,7 +67,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     func generateAndPresentBarcode() {
   
         var barcode = UIImage()
-        barcode = generateBarcode(from: cardNumber.text!)!
+        barcode = barcodeParserObj.generateBarcode(from: cardNumber.text!, typeOfBarcode: typeOfBarcode!)!
         barCode.image = barcode
         if !(self.naziv.text?.isEmpty)!{
         savingEnabled = true
@@ -117,38 +116,6 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         generateAndPresentBarcode()
     }
 
-    
-    func generateBarcode(from string: String) -> UIImage? {
-        
-        if typeOfBarcode == "org.gs1.EAN-13"{
-            let image: UIImage = barcodeParserObj.returnEAN13(string: string)
-            return image
-        }
-            
-        else if typeOfBarcode == "org.iso.Code39"{
-            let image: UIImage = barcodeParserObj.returnCode39(string: string)
-            return image
-            
-        }
-        
-        else if typeOfBarcode == "org.gs1.EAN-8"{
-            let image: UIImage = barcodeParserObj.returnEAN8(string: string)
-            return image
-        
-        }
-        
-        else if typeOfBarcode == "org.iso.Code128" {
-        let data = string.data(using: String.Encoding.ascii)
-        if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
-            if let output = filter.outputImage?.applying(transform) {
-                return UIImage(ciImage: output)
-            }
-        }
-        }
-        return nil
-    }
     
     func storeCardToCoreData(){
         

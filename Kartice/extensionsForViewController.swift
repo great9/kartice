@@ -114,7 +114,7 @@ extension UIViewController{
 
 extension UIView{
     
-    // Some more animations on UIView level
+    // Some animations on UIView level
     func shake() {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.07

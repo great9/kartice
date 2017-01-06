@@ -32,5 +32,38 @@ class  barcodeParser {
     }
     
     
+    func generateBarcode(from string: String, typeOfBarcode: String) -> UIImage? {
+        
+        if typeOfBarcode == "org.gs1.EAN-13"{
+            let image: UIImage = self.returnEAN13(string: string)
+            return image
+        }
+            
+        else if typeOfBarcode == "org.iso.Code39"{
+            let image: UIImage = self.returnCode39(string: string)
+            return image
+            
+        }
+            
+        else if typeOfBarcode == "org.gs1.EAN-8"{
+            let image: UIImage = self.returnEAN8(string: string)
+            return image
+            
+        }
+            
+        else if typeOfBarcode == "org.iso.Code128" {
+            let data = string.data(using: String.Encoding.ascii)
+            if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
+                filter.setValue(data, forKey: "inputMessage")
+                let transform = CGAffineTransform(scaleX: 3, y: 3)
+                if let output = filter.outputImage?.applying(transform) {
+                    return UIImage(ciImage: output)
+                }
+            }
+        }
+        return nil
+    }
+
+    
 }
 

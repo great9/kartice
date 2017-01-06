@@ -8,14 +8,13 @@
 import AVFoundation
 import UIKit
 
-
 protocol passData {
     func barcodeScanned(code: String, type:String)
 }
 
 class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    var barcodeParserObj=barcodeParser()
+    var barcodeParserObj = barcodeParser()
     var delegate: passData?
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
@@ -29,7 +28,6 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
         let videoCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -146,7 +144,7 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             //found(code: readableObject.stringValue);
             if let del = delegate{
-                print("The type is \(readableObject.type!)")
+
                 del.barcodeScanned(code: readableObject.stringValue, type:readableObject.type!)
             }
         }
@@ -157,8 +155,6 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     func found(code: String) {
         readerLabel.text = code
         
-        
-        print(code)
     }
     
     func toggleTorch(){
