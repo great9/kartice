@@ -12,6 +12,7 @@ import RSBarcodes
 
 
 class  barcodeParser {
+    
     let generator = RSUnifiedCodeGenerator.codeGen()
     
     func returnEAN13(string:String) -> UIImage{

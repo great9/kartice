@@ -77,8 +77,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     func editPhotoButton(){
-        let stringForButtonTitle = ("Skeniraj")
-        self.photoButton.setTitle(stringForButtonTitle, for: .normal)
+        self.photoButton.setTitle("Skeniraj", for: .normal)
     }
     
     func addObserverToTextField(){
@@ -110,6 +109,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     func barcodeScanned(code: String, type: String){
+        //play a sound/vibration ?
         typeOfBarcode = type
         cardNumber.text = code
         typeOfBarcodeLabel.text = typeOfBarcode
