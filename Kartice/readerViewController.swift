@@ -145,8 +145,6 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             let systemSoundID: SystemSoundID = 1057
             AudioServicesPlaySystemSound(systemSoundID)
             
-            
-            
             if let del = delegate{
 
                 del.barcodeScanned(code: readableObject.stringValue, type:readableObject.type!)
