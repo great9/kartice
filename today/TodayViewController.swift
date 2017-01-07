@@ -11,6 +11,7 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
+    @IBOutlet weak var behindBarcodeView: UIView!
     @IBOutlet weak var vendorLabel: UILabel!
     @IBOutlet weak var barcodeImage: UIImageView!
     @IBOutlet weak var codeLabel: UILabel!
@@ -20,10 +21,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if #available(iOSApplicationExtension 10.0, *) {
             self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         } else {
-            // Fallback on earlier versions
+  
         }
         
-       // vendorLabel.text = "Probentext"
+ 
         
         if let code = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "brojKartice"){
             codeLabel.text = code as? String
@@ -34,6 +35,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             vendorLabel.text = vendor as? String
         } else {
             vendorLabel.text = "Niste postavili ni jednu karticu kao favorita"
+            behindBarcodeView.isHidden = true
+            
         }
         if let image = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "image"){
             let imageToPresent = UIImage(data: image as! Data)

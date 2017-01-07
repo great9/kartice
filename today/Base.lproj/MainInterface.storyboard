@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,6 +49,7 @@
                                     <constraint firstAttribute="trailing" secondItem="PLg-lo-5HA" secondAttribute="trailing" constant="21" id="Ko8-32-K8E"/>
                                     <constraint firstAttribute="height" constant="86" id="PUD-dt-1Jf"/>
                                     <constraint firstItem="PLg-lo-5HA" firstAttribute="leading" secondItem="zKA-CN-StB" secondAttribute="leading" constant="22" id="etk-a1-1s9"/>
+                                    <constraint firstAttribute="width" secondItem="PLg-lo-5HA" secondAttribute="height" multiplier="32:7" id="pVk-Kc-dHd"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
@@ -82,6 +83,7 @@
                     <size key="freeformSize" width="320" height="177"/>
                     <connections>
                         <outlet property="barcodeImage" destination="PLg-lo-5HA" id="KHB-SW-8UH"/>
+                        <outlet property="behindBarcodeView" destination="zKA-CN-StB" id="QAn-nd-3XR"/>
                         <outlet property="codeLabel" destination="G9a-gq-iM0" id="XZQ-Sv-xe2"/>
                         <outlet property="vendorLabel" destination="GcN-lo-r42" id="yOE-J2-EkX"/>
                     </connections>

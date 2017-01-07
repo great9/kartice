@@ -97,10 +97,15 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        storeButtonOutlet.backgroundColor = customColors.scheme1Color2faded
-        editPhotoButton()
+        
         naziv.becomeFirstResponder()
         addObserverToTextField()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        storeButtonOutlet.backgroundColor = customColors.scheme1Color2faded
+        editPhotoButton()
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

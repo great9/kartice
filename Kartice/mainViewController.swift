@@ -39,6 +39,12 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
      
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
+        setHeader()
+        
+        
+    }
+    
+    func setHeader(){
         self.tableView.tableFooterView = UIView()
         
         self.navigationItem.title = "Kartice"
@@ -49,8 +55,6 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         
         self.tableView.separatorColor = UIColor.clear
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        
-        
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
@@ -98,16 +102,14 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         
         if evenOdd == 0 {
         cell.cellBckVw.backgroundColor = customColors.scheme1Color2
-        //cell.cellBckVw.layer.borderColor = customColors.lightPurpleTV.cgColor
+       
   
         
         }else{
             cell.cellBckVw.backgroundColor = customColors.scheme1Color1
-        //cell.cellBckVw.layer.borderColor = customColors.darkPurpleTV.cgColor
-       
-            }}else {
+                   }}else {
         cell.cellBckVw.backgroundColor = customColors.scheme1Color4
-       // cell.cellBckVw.layer.borderColor = customColors.lighterPurpleTV.cgColor
+      
         }
         
         return cell
@@ -121,13 +123,11 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     func loadCoreData(){
         cardObjects.removeAll()
         
-        //let request = NSFetchRequest<Goals>(entityName:"Goals")
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         do{
             let fetchRequest : NSFetchRequest<Card> = Card.fetchRequest()
-            //let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
-           // fetchRequest.sortDescriptors = [sortDescriptor]
+    
             
             let result = try context.fetch(fetchRequest)
             for result in result {
@@ -135,12 +135,22 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
                print("Core data fetch \(result.kod!)" )
             }
             animateTable()
-           // tableView.reloadData()
-            //self.tableView.reloadSections([0], with: UITableViewRowAnimation.fade)
+            
+            if !result.isEmpty {
+            cardSearchBar.isHidden = false
+            self.view.reloadInputViews()
+            }
+            else {
+            cardSearchBar.isHidden = true
+            self.view.reloadInputViews()
+            }
+            
+            
         }
         catch {
-            fatalError("Sthh")
+            fatalError("Error while trying to get core data")
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -153,7 +163,6 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
             
             let objectToDelete = cardObjects[indexPath.row]
             let predicateForDelete = objectToDelete.id
-            //stavi i za adresu slike
             let predicate = NSPredicate(format: "id == %@", predicateForDelete!)
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             
@@ -166,18 +175,17 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
                 for object in result {
                     context.delete(object)
                 }
-                
-                
+        
                 
             }
             catch {
-                fatalError("Sthh")
+                fatalError("Error 1 while trying to delete from the core data")
             }
             
             do{
                 try context.save()}
             catch{
-                fatalError("Error")
+                fatalError("Error 2 while trying to delete from the core data")
                 
             }
        
@@ -200,33 +208,28 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     
     //search bar delegate functions
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("Started editing")
         searchActivated = true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("Ended editing")
         searchActivated = false
     }
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Entered searchbar function")
         
         filteredCardObjects = cardObjects.filter({ (Card) -> Bool in
             let preTmp = Card.naziv
             let tmp = NSString(string: preTmp!)
             let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-            print("preTMP \(preTmp)")
-            print ("TMP \(tmp)")
             return range.location != NSNotFound
         })
         
         if(filteredCardObjects.count == 0){
-            searchActivated = false;
+            searchActivated = false
             self.tableView.reloadData()
         } else {
-            searchActivated = true;
+            searchActivated = true
         }
         self.tableView.reloadData()
     }
@@ -278,6 +281,8 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         
         
     }
+    
+    
     func animateTable() {
         tableView.reloadData()
         
