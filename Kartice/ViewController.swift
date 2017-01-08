@@ -114,7 +114,6 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     func barcodeScanned(code: String, type: String){
-        //play a sound/vibration ?
         typeOfBarcode = type
         cardNumber.text = code
         typeOfBarcodeLabel.text = typeOfBarcode

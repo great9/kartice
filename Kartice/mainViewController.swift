@@ -83,8 +83,8 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! customCell
+        
         cell.cellBckVw.layer.cornerRadius = 6
-        cell.addGestureRecognizer(longGesture)
         var objToShow : Card?
         
         if searchActivated{
@@ -102,14 +102,11 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         
         if evenOdd == 0 {
         cell.cellBckVw.backgroundColor = customColors.scheme1Color2
-       
-  
-        
-        }else{
-            cell.cellBckVw.backgroundColor = customColors.scheme1Color1
-                   }}else {
+        } else {
+          cell.cellBckVw.backgroundColor = customColors.scheme1Color1
+        }}
+        else {
         cell.cellBckVw.backgroundColor = customColors.scheme1Color4
-      
         }
         
         return cell
@@ -142,6 +139,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
             }
             else {
             cardSearchBar.isHidden = true
+            cardSearchBar.resignFirstResponder()
             self.view.reloadInputViews()
             }
             
@@ -217,7 +215,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+
         filteredCardObjects = cardObjects.filter({ (Card) -> Bool in
             let preTmp = Card.naziv
             let tmp = NSString(string: preTmp!)
@@ -237,6 +235,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     func handleViewTap(recognizer: UIGestureRecognizer) {
         cardSearchBar.resignFirstResponder()
     }
+
     
     func countCoreDataObjects()-> Bool{
         //let request = NSFetchRequest<Goals>(entityName:"Goals")
@@ -257,32 +256,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         }
         
     }
-    
-    func keyboardDismiss() {
-        cardSearchBar.resignFirstResponder()
-    }
-    
-   /* func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        keyboardDismiss()
-    }*/
-    
-    let longGesture = UILongPressGestureRecognizer(target: self, action: Selector(("addFavorite:")))
-    
-    func emptyTheCardSearchBar(){
-        cardSearchBar.text = ""
-    }
-    
-    func addFavorite(){
-    print("Longpressed")
-    }
-    
-    func addFavoriteToNSUserDefaults(favCard: Card){
-        UserDefaults.init(suiteName: "group.com.darko")?.setValue("Broj Kartice", forKey: "brojKartice")
         
-        
-    }
-    
-    
     func animateTable() {
         tableView.reloadData()
         

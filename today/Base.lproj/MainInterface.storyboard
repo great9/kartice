@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,26 +30,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKA-CN-StB">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="zKA-CN-StB">
                                 <rect key="frame" x="0.0" y="45" width="320" height="86"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLg-lo-5HA">
+                                    <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLg-lo-5HA">
                                         <rect key="frame" x="22" y="8" width="277" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="znw-hr-V8r"/>
-                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="PLg-lo-5HA" secondAttribute="bottom" constant="8" id="ArA-Pj-yfy"/>
-                                    <constraint firstItem="PLg-lo-5HA" firstAttribute="top" secondItem="zKA-CN-StB" secondAttribute="top" constant="8" id="ElB-ag-SSE"/>
-                                    <constraint firstAttribute="width" secondItem="zKA-CN-StB" secondAttribute="height" multiplier="160:43" id="Gxf-QK-50N"/>
-                                    <constraint firstAttribute="trailing" secondItem="PLg-lo-5HA" secondAttribute="trailing" constant="21" id="Ko8-32-K8E"/>
-                                    <constraint firstAttribute="height" constant="86" id="PUD-dt-1Jf"/>
-                                    <constraint firstItem="PLg-lo-5HA" firstAttribute="leading" secondItem="zKA-CN-StB" secondAttribute="leading" constant="22" id="etk-a1-1s9"/>
-                                    <constraint firstAttribute="width" secondItem="PLg-lo-5HA" secondAttribute="height" multiplier="32:7" id="pVk-Kc-dHd"/>
+                                    <constraint firstAttribute="bottom" secondItem="PLg-lo-5HA" secondAttribute="bottom" constant="8" id="N7W-pF-9eY"/>
+                                    <constraint firstItem="PLg-lo-5HA" firstAttribute="top" secondItem="zKA-CN-StB" secondAttribute="top" constant="8" id="RYT-O0-38W"/>
+                                    <constraint firstAttribute="height" constant="86" id="aKG-Jl-1zg"/>
+                                    <constraint firstItem="PLg-lo-5HA" firstAttribute="leading" secondItem="zKA-CN-StB" secondAttribute="leading" constant="22" id="hmW-M3-jfR"/>
+                                    <constraint firstAttribute="trailing" secondItem="PLg-lo-5HA" secondAttribute="trailing" constant="21" id="z7h-mg-dR9"/>
                                 </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
                                 <rect key="frame" x="0.0" y="14" width="320" height="23"/>
@@ -64,15 +59,15 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="G9a-gq-iM0" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="0X7-HU-K5t"/>
-                            <constraint firstItem="zKA-CN-StB" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="7C5-f5-JaD"/>
+                            <constraint firstItem="G9a-gq-iM0" firstAttribute="top" secondItem="zKA-CN-StB" secondAttribute="bottom" constant="11" id="1Uy-eP-4Eh"/>
                             <constraint firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" id="7zg-hk-mhe"/>
                             <constraint firstAttribute="trailing" secondItem="G9a-gq-iM0" secondAttribute="trailing" id="GF0-eu-2zH"/>
-                            <constraint firstItem="G9a-gq-iM0" firstAttribute="top" secondItem="zKA-CN-StB" secondAttribute="bottom" constant="11" id="GeF-HC-JES"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="MtX-8a-CKB"/>
+                            <constraint firstItem="zKA-CN-StB" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="QNX-mR-6st"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="G9a-gq-iM0" secondAttribute="bottom" constant="4" id="c3I-FG-hQS"/>
-                            <constraint firstItem="zKA-CN-StB" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="8" id="rcT-P8-dQK"/>
+                            <constraint firstAttribute="trailing" secondItem="zKA-CN-StB" secondAttribute="trailing" id="iTf-Gg-1rg"/>
+                            <constraint firstItem="zKA-CN-StB" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="8" id="p7I-Fh-l8s"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="14" id="tIL-fR-f1A"/>
-                            <constraint firstAttribute="trailing" secondItem="zKA-CN-StB" secondAttribute="trailing" id="tyx-Mq-tdC"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
