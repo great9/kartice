@@ -24,7 +24,9 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
             }
         }
     }
-   
+    
+    //core data
+    var managedObjectContext: NSManagedObjectContext!
     
     func textFieldDidChange(sender: Any){
         if let notification = sender as? NSNotification,
@@ -47,7 +49,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     @IBAction func storeBarcode2(_ sender: Any) {
         if savingEnabled{
-            storeCardToCoreData()
+            storeCard()
             generateAndPresentBarcode()
         }
         else{
@@ -98,6 +100,9 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //core data
+        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
         naziv.becomeFirstResponder()
         addObserverToTextField()
     }
@@ -121,25 +126,21 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
 
     
-    func storeCardToCoreData(){
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Card", in: context)
-        let card = NSManagedObject(entity: entity!, insertInto: context) as! Card
-        
+    func storeCard(){
+        let card = Card(context: managedObjectContext)
         card.id = String(Date.timeIntervalSinceReferenceDate)
         card.kod = cardNumber.text
-        card.logo = "" //temporary not in use
+        card.logo = "" //to be used
         card.naziv = naziv.text
         card.type = typeOfBarcode
-       
+        
         do{
-            try context.save()
+            try self.managedObjectContext.save()
             self.view.endEditing(true)
             self.dismiss(animated: true, completion: nil)
         }
         catch{
-            fatalError("Error while trying to save to core data")
+            fatalError("Error while trying to save to core data \(error.localizedDescription)")
         }
         
     }

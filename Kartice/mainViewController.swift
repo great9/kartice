@@ -16,6 +16,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     
     var cardObjects = [Card]()
     var filteredCardObjects: [Card] = []
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var searchActivated = false
     
@@ -117,16 +118,15 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         cell.backgroundColor = UIColor.clear
     }
     
+
     func loadCoreData(){
         cardObjects.removeAll()
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         do{
             let fetchRequest : NSFetchRequest<Card> = Card.fetchRequest()
     
             
-            let result = try context.fetch(fetchRequest)
+            let result = try managedObjectContext.fetch(fetchRequest)
             for result in result {
                 cardObjects.append(result)
                print("Core data fetch \(result.kod!)" )
