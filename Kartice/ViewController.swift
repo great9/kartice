@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 import RSBarcodes
-import FontAwesome_swift
 
+ 
 class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     var barcodeParserObj=barcodeParser()

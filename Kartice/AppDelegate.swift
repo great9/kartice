@@ -97,17 +97,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if shortcutItem.type == "com.darko.Kartice.scanCard"{
             print("Shortcut tapped")
+            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "newCardVC") as! ViewController
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
-            
-            viewController.performSegue(withIdentifier: "addCard", sender: self)
-            
-            /*
-            let rootViewController = self.window!.rootViewController
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "newCardVC") as! ViewController
-            rootViewController?.navigationController?.popToViewController(setViewController, animated: true) */
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+
             
         }
     }
