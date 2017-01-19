@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kartice/ViewController.swift"
-            timestampString = "505778153.560403"
+            timestampString = "506101587.266205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "ViewController"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "newCardViewController"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>

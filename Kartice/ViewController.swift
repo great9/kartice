@@ -15,6 +15,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     
     var barcodeParserObj=barcodeParser()
     var typeOfBarcode: String?
+    
     var savingEnabled:Bool = false{
         didSet{
             if savingEnabled{
@@ -144,6 +145,8 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
         }
         
     }
+    
+
     
     
     override var prefersStatusBarHidden: Bool {

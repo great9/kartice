@@ -12,6 +12,8 @@ import DZNEmptyDataSet
 
 class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
+   
+    
     @IBOutlet weak var cardSearchBar: UISearchBar!
     
     var cardObjects = [Card]()
@@ -41,17 +43,32 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         setHeader()
+        self.cardSearchBar.returnKeyType = .done
         
         
     }
+    
+    func removeKeyboardOnTap(){
+        if self.cardSearchBar.isFirstResponder {
+            //add gesture recognizer
+            //cardSearchBar.resignFirstResponder()
+           // let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resignFirstResponder))
+           // view.addGestureRecognizer(tap)
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        cardSearchBar.resignFirstResponder()
+    }
+
     
     func setHeader(){
         self.tableView.tableFooterView = UIView()
         
         self.navigationItem.title = "Kartice"
-        self.navigationController!.navigationBar.titleTextAttributes =
+       /* self.navigationController!.navigationBar.titleTextAttributes =
             ([NSFontAttributeName: UIFont(name: "Avenir", size: 22)!,
-              NSForegroundColorAttributeName: UIColor.black])
+              NSForegroundColorAttributeName: UIColor.black])*/
         self.tableView.showsVerticalScrollIndicator = false
         
         self.tableView.separatorColor = UIColor.clear
@@ -215,7 +232,8 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
+        print("jhfjht")
+        removeKeyboardOnTap()
         filteredCardObjects = cardObjects.filter({ (Card) -> Bool in
             let preTmp = Card.naziv
             let tmp = NSString(string: preTmp!)
@@ -278,6 +296,11 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
             
             index += 1
         }
+    }
+    
+    func touchToScan(){
+        let readerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "readerVC") as! readerViewController
+        readerVC.present(readerVC, animated: true, completion: nil)
     }
  
     

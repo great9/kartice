@@ -88,6 +88,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    
+    //MARK: - 3D touch
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+ 
+        
+        if shortcutItem.type == "com.darko.Kartice.scanCard"{
+            print("Shortcut tapped")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
+            
+            viewController.performSegue(withIdentifier: "addCard", sender: self)
+            
+            /*
+            let rootViewController = self.window!.rootViewController
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "newCardVC") as! ViewController
+            rootViewController?.navigationController?.popToViewController(setViewController, animated: true) */
+            
+        }
+    }
+    
+    
 
 }
 

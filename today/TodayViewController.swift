@@ -24,24 +24,39 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   
         }
         
- 
+        if self.preferredContentSize.height > 199{
+            
+        behindBarcodeView.isHidden = false
+        codeLabel.isHidden = false
+        barcodeImage.isHidden = false
         
         if let code = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "brojKartice"){
             codeLabel.text = code as? String
         }else {
-            codeLabel.text = "🕵🏾 označite neku karticu kao favorita"
+            codeLabel.text = " označite neku karticu kao favorita"
         }
         if let vendor = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "vendor"){
-            vendorLabel.text = vendor as? String
+        
+                vendorLabel.text = vendor as? String
         } else {
             vendorLabel.text = "Niste postavili ni jednu karticu kao favorita"
             behindBarcodeView.isHidden = true
             
         }
+        
         if let image = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "image"){
             let imageToPresent = UIImage(data: image as! Data)
             barcodeImage.image = imageToPresent
+            }
         }
+        else {
+            vendorLabel.text = "Kliknite na 'Prikaži više' za prikaz bar koda"
+            behindBarcodeView.isHidden = true
+            codeLabel.isHidden = true
+            barcodeImage.isHidden = true
+        }
+        
+
         
         // Do any additional setup after loading the view from its nib.
     }
@@ -66,6 +81,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @available(iOSApplicationExtension 10.0, *)
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         self.preferredContentSize = (activeDisplayMode == .expanded) ? CGSize(width: 320, height: 200) : CGSize(width: maxSize.width, height: 110)
+        
+        viewDidLoad()
+      
     }
     
 }

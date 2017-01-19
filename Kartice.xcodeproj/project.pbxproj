@@ -15,11 +15,11 @@
 		A4145D051DCD464800770B8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145D041DCD464800770B8D /* ViewController.swift */; };
 		A4145D081DCD464800770B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4145D061DCD464800770B8D /* Main.storyboard */; };
 		A4145D0B1DCD464800770B8D /* Kartice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4145D091DCD464800770B8D /* Kartice.xcdatamodeld */; };
-		A4145D0D1DCD464800770B8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4145D0C1DCD464800770B8D /* Assets.xcassets */; };
 		A4145D101DCD464800770B8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4145D0E1DCD464800770B8D /* LaunchScreen.storyboard */; };
 		A4145D1B1DCD464800770B8D /* KarticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145D1A1DCD464800770B8D /* KarticeTests.swift */; };
 		A4145D261DCD464800770B8D /* KarticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145D251DCD464800770B8D /* KarticeUITests.swift */; };
 		A442AAEB1DCE1EC200E2E587 /* extensionsForViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A442AAEA1DCE1EC200E2E587 /* extensionsForViewController.swift */; };
+		A4AAF3901E30BF380092FB74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4AAF38F1E30BF380092FB74 /* Assets.xcassets */; };
 		A4AC9BFE1DE4C82D00A44559 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AC9BFD1DE4C82D00A44559 /* NotificationCenter.framework */; };
 		A4AC9C011DE4C82D00A44559 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AC9C001DE4C82D00A44559 /* TodayViewController.swift */; };
 		A4AC9C041DE4C82D00A44559 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4AC9C021DE4C82D00A44559 /* MainInterface.storyboard */; };
@@ -82,7 +82,6 @@
 		A4145D041DCD464800770B8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A4145D071DCD464800770B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4145D0A1DCD464800770B8D /* Kartice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kartice.xcdatamodel; sourceTree = "<group>"; };
-		A4145D0C1DCD464800770B8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4145D0F1DCD464800770B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4145D111DCD464800770B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4145D161DCD464800770B8D /* KarticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KarticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +91,7 @@
 		A4145D251DCD464800770B8D /* KarticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarticeUITests.swift; sourceTree = "<group>"; };
 		A4145D271DCD464800770B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A442AAEA1DCE1EC200E2E587 /* extensionsForViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensionsForViewController.swift; sourceTree = "<group>"; };
+		A4AAF38F1E30BF380092FB74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4AC9BFC1DE4C82D00A44559 /* today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4AC9BFD1DE4C82D00A44559 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		A4AC9C001DE4C82D00A44559 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -190,8 +190,8 @@
 				A4D6BC031DD4E38700AC7DE6 /* main View */,
 				A4D6BC041DD4E38D00AC7DE6 /* display View */,
 				A4145D061DCD464800770B8D /* Main.storyboard */,
-				A4145D0C1DCD464800770B8D /* Assets.xcassets */,
 				A4145D0E1DCD464800770B8D /* LaunchScreen.storyboard */,
+				A4AAF38F1E30BF380092FB74 /* Assets.xcassets */,
 				A4145D111DCD464800770B8D /* Info.plist */,
 				A4145D091DCD464800770B8D /* Kartice.xcdatamodeld */,
 			);
@@ -434,7 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4145D101DCD464800770B8D /* LaunchScreen.storyboard in Resources */,
-				A4145D0D1DCD464800770B8D /* Assets.xcassets in Resources */,
+				A4AAF3901E30BF380092FB74 /* Assets.xcassets in Resources */,
 				A4145D081DCD464800770B8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
