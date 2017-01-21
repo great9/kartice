@@ -9,9 +9,7 @@ target 'Kartice' do
 
 pod 'DZNEmptyDataSet'
 pod 'RSBarcodes', '~> 0.1.3'
-pod 'Canvas', '~> 0.1.2'
-pod 'FontAwesome.swift'
-pod ‘SwiftSpinner’
+
 
   target 'KarticeTests' do
     inherit! :search_paths
