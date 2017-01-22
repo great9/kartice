@@ -104,13 +104,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             self.window = UIWindow(frame: UIScreen.main.bounds)
             
-            self.window?.rootViewController = mainController
-            
+            self.window?.rootViewController = navController
             self.window?.makeKeyAndVisible()
             
-            self.window?.rootViewController?.performSegue(withIdentifier: "addCard", sender: self)
-            self.window?.rootViewController?.addChildViewController(addCardVC)
-            self.window?.rootViewController?.performSegue(withIdentifier: "scanABarcode", sender: self)
+            navController?.present(mainController, animated: false, completion: nil)
+            mainController.present(addCardVC, animated: false, completion: nil)
+            
+            //self.window?.rootViewController?.performSegue(withIdentifier: "addCard", sender: self)
+            //self.window?.rootViewController?.addChildViewController(addCardVC)
+            //self.window?.rootViewController = addCardVC
+            addCardVC.present(showScanner, animated: false, completion: nil)
+            //self.window?.rootViewController?.addChildViewController(showScanner)
+            //self.window?.rootViewController?.performSegue(withIdentifier: "scanABarcode", sender: self)
             
             /*let initialViewController : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "readerVC") as! readerViewController
             self.window = UIWindow(frame: UIScreen.main.bounds)
