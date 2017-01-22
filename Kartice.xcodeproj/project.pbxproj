@@ -13,7 +13,6 @@
 		A40C80D71DCFD51E00006291 /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40C80D61DCFD51E00006291 /* customCell.swift */; };
 		A4145D031DCD464800770B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145D021DCD464800770B8D /* AppDelegate.swift */; };
 		A4145D051DCD464800770B8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145D041DCD464800770B8D /* ViewController.swift */; };
-		A4145D081DCD464800770B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4145D061DCD464800770B8D /* Main.storyboard */; };
 		A4145D0B1DCD464800770B8D /* Kartice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4145D091DCD464800770B8D /* Kartice.xcdatamodeld */; };
 		A4145D101DCD464800770B8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4145D0E1DCD464800770B8D /* LaunchScreen.storyboard */; };
 		A4145D1B1DCD464800770B8D /* KarticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4145D1A1DCD464800770B8D /* KarticeTests.swift */; };
@@ -26,6 +25,7 @@
 		A4AC9C081DE4C82D00A44559 /* today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4AC9BFC1DE4C82D00A44559 /* today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A4B520941DCF62150046597D /* displayDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B520931DCF62150046597D /* displayDataController.swift */; };
 		A4D6BC001DD4D4FA00AC7DE6 /* barcodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6BBFF1DD4D4FA00AC7DE6 /* barcodesParser.swift */; };
+		A4E3D06C1E33A0F200213B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4E3D06A1E33A0F200213B08 /* Main.storyboard */; };
 		A4F203D21DCE2DD3006B20B7 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F203D11DCE2DD3006B20B7 /* mainViewController.swift */; };
 		E6204D6F389CDB81A6120CCB /* Pods_Kartice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63375C37C71030C5DCF92BC0 /* Pods_Kartice.framework */; };
 /* End PBXBuildFile section */
@@ -80,7 +80,6 @@
 		A4145CFF1DCD464800770B8D /* Kartice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kartice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4145D021DCD464800770B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4145D041DCD464800770B8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A4145D071DCD464800770B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4145D0A1DCD464800770B8D /* Kartice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kartice.xcdatamodel; sourceTree = "<group>"; };
 		A4145D0F1DCD464800770B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4145D111DCD464800770B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		A4AC9C0E1DE4CB0600A44559 /* today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = today.entitlements; sourceTree = "<group>"; };
 		A4B520931DCF62150046597D /* displayDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = displayDataController.swift; path = ../displayDataController.swift; sourceTree = "<group>"; };
 		A4D6BBFF1DD4D4FA00AC7DE6 /* barcodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = barcodesParser.swift; sourceTree = "<group>"; };
+		A4E3D06B1E33A0F200213B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4F203D11DCE2DD3006B20B7 /* mainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		C94CC68DF0E5D3079D94434C /* Pods-KarticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KarticeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KarticeTests/Pods-KarticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		D70A3945BF102C35EF1D9E2A /* Pods-Kartice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kartice.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kartice/Pods-Kartice.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,8 +189,8 @@
 				A4D6BC021DD4E37500AC7DE6 /* reader view */,
 				A4D6BC031DD4E38700AC7DE6 /* main View */,
 				A4D6BC041DD4E38D00AC7DE6 /* display View */,
-				A4145D061DCD464800770B8D /* Main.storyboard */,
 				A4145D0E1DCD464800770B8D /* LaunchScreen.storyboard */,
+				A4E3D06A1E33A0F200213B08 /* Main.storyboard */,
 				A4AAF38F1E30BF380092FB74 /* Assets.xcassets */,
 				A4145D111DCD464800770B8D /* Info.plist */,
 				A4145D091DCD464800770B8D /* Kartice.xcdatamodeld */,
@@ -433,9 +433,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E3D06C1E33A0F200213B08 /* Main.storyboard in Resources */,
 				A4145D101DCD464800770B8D /* LaunchScreen.storyboard in Resources */,
 				A4AAF3901E30BF380092FB74 /* Assets.xcassets in Resources */,
-				A4145D081DCD464800770B8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,14 +663,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A4145D061DCD464800770B8D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A4145D071DCD464800770B8D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A4145D0E1DCD464800770B8D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -685,6 +677,14 @@
 				A4AC9C031DE4C82D00A44559 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		A4E3D06A1E33A0F200213B08 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4E3D06B1E33A0F200213B08 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

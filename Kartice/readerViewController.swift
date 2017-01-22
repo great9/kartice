@@ -106,7 +106,7 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func closeViewFinder(){
-        
+    
         self.dismiss(animated: true, completion: nil)
     }
     

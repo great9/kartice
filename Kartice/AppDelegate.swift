@@ -81,10 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                
+                print("There has been an error \(error) while trying to save core data")
+
             }
         }
     }
@@ -98,13 +97,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if shortcutItem.type == "com.darko.Kartice.scanCard"{
             print("Shortcut tapped")
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            mainStoryboard.instantiateInitialViewController()!
-            mainStoryboard.instantiateViewController(withIdentifier: "newCardVC") as! ViewController
+            let navController = mainStoryboard.instantiateInitialViewController()
+            let mainController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! mainController
+            let addCardVC : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "newCardVC") as! ViewController
             let showScanner: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "readerVC") as! readerViewController
             
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = showScanner
+            
+            self.window?.rootViewController = mainController
+            
             self.window?.makeKeyAndVisible()
+            
+            self.window?.rootViewController?.performSegue(withIdentifier: "addCard", sender: self)
+            self.window?.rootViewController?.addChildViewController(addCardVC)
+            self.window?.rootViewController?.performSegue(withIdentifier: "scanABarcode", sender: self)
+            
             /*let initialViewController : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "readerVC") as! readerViewController
             self.window = UIWindow(frame: UIScreen.main.bounds)
             self.window?.rootViewController = initialViewController
