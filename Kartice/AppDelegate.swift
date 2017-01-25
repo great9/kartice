@@ -105,34 +105,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let addCardVC : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "newCardVC") as! ViewController
             let showScanner: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "readerVC") as! readerViewController
             
-            var rootViewController = mainStoryboard.instantiateInitialViewController()
-            let rvc = self.window?.rootViewController
+            let rootViewController = mainStoryboard.instantiateInitialViewController()
+            
+            if rootViewController != mainController{
             self.window?.rootViewController?.present(rootViewController!, animated: false, completion: nil)
             rootViewController?.present(addCardVC, animated: false, completion: {
                 addCardVC.performSegue(withIdentifier: "scanABarcode", sender: addCardVC)
             })
-     
-            
-           /* rvc?.present(mainController, animated: false, completion: nil)
-            mainController.present(addCardVC, animated: false, completion: presentFinalVC)
-            */
-    
-           
-             // mainController.present(addCardVC, animated: false, completion: nil)
-            //rootViewController.pushViewController(mainController, animated: true)
-           // mainController.performSegue(withIdentifier: "addCard", sender: mainController)
-          //  self.window = UIWindow(frame: UIScreen.main.bounds)
-          
-          //  self.window?.makeKeyAndVisible()
-
-            //addCardVC.performSegue(withIdentifier: "scanABarcode", sender: navController)
-            
-            
-            /*
-            let initialViewController : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "readerVC") as! readerViewController
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()*/
+            }
+            else {
+                print("Else 3d touch")
+            }
 
             
         }

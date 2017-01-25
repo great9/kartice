@@ -1,15 +1,24 @@
 PODS:
+  - Canvas (0.1.2)
   - DZNEmptyDataSet (1.8.1)
+  - FontAwesome.swift (1.0.0)
   - RSBarcodes (0.1.4)
+  - SwiftSpinner (1.1.0)
 
 DEPENDENCIES:
+  - Canvas (~> 0.1.2)
   - DZNEmptyDataSet
+  - FontAwesome.swift
   - RSBarcodes (~> 0.1.3)
+  - SwiftSpinner
 
 SPEC CHECKSUMS:
+  Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
   RSBarcodes: 6b062b5aba3e75a5e889b2465ef1bb256215fbd0
+  SwiftSpinner: c03815614599b91eea46594bd52ba742849d0414
 
-PODFILE CHECKSUM: 3ab923230be3c836a60c8bfa6818511c0028d95b
+PODFILE CHECKSUM: 326176e8abc0b3d9287853e1b051a6ac7768ea68
 
 COCOAPODS: 1.1.1
