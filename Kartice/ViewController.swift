@@ -80,7 +80,7 @@ class ViewController: UIViewController,UITextFieldDelegate, passData{
     }
     
     func editPhotoButton(){
-        self.photoButton.setTitle("Skeniraj", for: .normal)
+        self.photoButton.setTitle("Scan a card", for: .normal)
     }
     
     func addObserverToTextField(){

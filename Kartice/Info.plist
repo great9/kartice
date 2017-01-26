@@ -2,21 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIApplicationShortcutWidget</key>
-	<string>none</string>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.darko.Kartice.scanCard</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Skeniraj karticu</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeAdd</string>
-		</dict>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>hr</string>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Kartice</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -35,6 +24,19 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Used to scan barcode</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeAdd</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Skeniraj karticu</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.darko.Kartice.scanCard</string>
+		</dict>
+	</array>
+	<key>UIApplicationShortcutWidget</key>
+	<string>none</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

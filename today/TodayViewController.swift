@@ -33,13 +33,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let code = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "brojKartice"){
             codeLabel.text = code as? String
         }else {
-            codeLabel.text = " označite neku karticu kao favorita"
+            codeLabel.text = "Mark a card as favorite"
         }
         if let vendor = UserDefaults.init(suiteName: "group.com.darko")?.value(forKey: "vendor"){
         
                 vendorLabel.text = vendor as? String
         } else {
-            vendorLabel.text = "Niste postavili ni jednu karticu kao favorita"
+            vendorLabel.text = "You haven't set any card as favorite"
             behindBarcodeView.isHidden = true
             
         }
@@ -50,7 +50,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
         }
         else {
-            vendorLabel.text = "Kliknite na 'Prikaži više' za prikaz bar koda"
+            vendorLabel.text = "Click on 'Show more' to show the barcode"
             behindBarcodeView.isHidden = true
             codeLabel.isHidden = true
             barcodeImage.isHidden = true

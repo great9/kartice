@@ -78,7 +78,7 @@ class readerViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
         //cancel button
         let cancelButton = UIButton()
-        cancelButton.setTitle("Odustani", for: .normal)
+        cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.titleLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 25)
         
         cancelButton.frame = positionForCancelButton
