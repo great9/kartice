@@ -23,14 +23,14 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Used to scan barcode</string>
+	<string>We would like to use your camera so that you can scan the cards.</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeAdd</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Skeniraj karticu</string>
+			<string>Scan a card</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>com.darko.Kartice.scanCard</string>
 		</dict>

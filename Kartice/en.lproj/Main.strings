@@ -1,9 +1,9 @@
 
 /* Class = "UITextField"; placeholder = "Name"; ObjectID = "Edb-Ul-IrV"; */
-"Edb-Ul-IrV.placeholder" = "Naziv";
+"Edb-Ul-IrV.placeholder" = "Name";
 
 /* Class = "UIButton"; normalTitle = "Scan a card"; ObjectID = "K5X-7U-i3T"; */
-"K5X-7U-i3T.normalTitle" = "Skeniraj karticu";
+"K5X-7U-i3T.normalTitle" = "Scan a card";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "YNp-Oa-cJ9"; */
 "YNp-Oa-cJ9.text" = "Label";

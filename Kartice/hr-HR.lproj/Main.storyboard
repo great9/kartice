@@ -131,7 +131,7 @@
                                     <constraint firstAttribute="height" constant="66" id="NWu-Uw-YCC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="28"/>
-                                <state key="normal" title="Scan">
+                                <state key="normal" title="Scan a card">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -164,7 +164,7 @@
                                     <constraint firstAttribute="height" constant="66" id="A4x-fq-L1j"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="28"/>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="Store a card">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>

@@ -76,7 +76,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let str = "Dobrodošli"
+        let str = "Welcome"
         let attrs = [NSFontAttributeName:UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
@@ -86,7 +86,7 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let str = "Unesite svoj prvi kod klikom na + sa desne strane"
+        let str = "Enter your first code by pressing + on the top right"
         let attrs = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)]
         return NSAttributedString(string:str, attributes:attrs)
     }
@@ -232,7 +232,6 @@ class mainController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSe
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("jhfjht")
         removeKeyboardOnTap()
         filteredCardObjects = cardObjects.filter({ (Card) -> Bool in
             let preTmp = Card.naziv

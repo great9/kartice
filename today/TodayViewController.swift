@@ -50,7 +50,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
         }
         else {
-            vendorLabel.text = "Click on 'Show more' to show the barcode"
+            let messageWhenWidgetIsSmall = "Click on 'Show more' to show the barcode"
+            vendorLabel.text = messageWhenWidgetIsSmall
             behindBarcodeView.isHidden = true
             codeLabel.isHidden = true
             barcodeImage.isHidden = true

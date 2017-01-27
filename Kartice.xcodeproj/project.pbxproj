@@ -89,14 +89,8 @@
 		A4145D211DCD464800770B8D /* KarticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KarticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4145D251DCD464800770B8D /* KarticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarticeUITests.swift; sourceTree = "<group>"; };
 		A4145D271DCD464800770B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A44153271E3A7E37006E8BA8 /* hr-HR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hr-HR"; path = "hr-HR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		A44153281E3A7E38006E8BA8 /* hr-HR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hr-HR"; path = "hr-HR.lproj/Main.strings"; sourceTree = "<group>"; };
-		A44153291E3A7E38006E8BA8 /* hr-HR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hr-HR"; path = "hr-HR.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		A442AAEA1DCE1EC200E2E587 /* extensionsForViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensionsForViewController.swift; sourceTree = "<group>"; };
 		A4AAF38F1E30BF380092FB74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A4ABF7CF1E39495D0035A071 /* sr-RS */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-RS"; path = "sr-RS.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		A4ABF7D01E39495E0035A071 /* sr-RS */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-RS"; path = "sr-RS.lproj/Main.strings"; sourceTree = "<group>"; };
-		A4ABF7D11E39495E0035A071 /* sr-RS */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-RS"; path = "sr-RS.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		A4AC9BFC1DE4C82D00A44559 /* today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4AC9BFD1DE4C82D00A44559 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		A4AC9C001DE4C82D00A44559 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -675,8 +669,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A4145D0F1DCD464800770B8D /* Base */,
-				A4ABF7CF1E39495D0035A071 /* sr-RS */,
-				A44153271E3A7E37006E8BA8 /* hr-HR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -685,8 +677,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A4AC9C031DE4C82D00A44559 /* Base */,
-				A4ABF7D11E39495E0035A071 /* sr-RS */,
-				A44153291E3A7E38006E8BA8 /* hr-HR */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -695,8 +685,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A4E3D06B1E33A0F200213B08 /* Base */,
-				A4ABF7D01E39495E0035A071 /* sr-RS */,
-				A44153281E3A7E38006E8BA8 /* hr-HR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
